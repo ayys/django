@@ -388,7 +388,7 @@ class DatabaseWrapper(BaseDatabaseWrapper):
                     # Ensure the correct pool is returned. This is a workaround
                     # for tests so a pool can be changed on setting changes
                     # (e.g. USE_TZ, TIME_ZONE).
-                    self.connection._pool.putconn(self.connection)
+                    self.pool.putconn(self.connection)
                     # Connection can no longer be used.
                     self.connection = None
                 else:
